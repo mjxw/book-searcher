@@ -1,0 +1,25 @@
+    var url = new URL('http://localhost:8080/BookApp/BookServlet')
+
+    var params = {book:book} 
+    url.search = new URLSearchParams(params)
+    
+    // Using Fetch API for AJAX requirement 
+    fetch(url) 
+    .then(
+      function(response) {
+        if (response.status !== 200) {
+          console.log('Looks like there was a problem. Status Code: ' +
+            response.status);
+          return;
+        }
+
+        // Examine the text in the response
+        response.text().then(function(data) {
+          loadBooks(data);
+//          console.log(data);
+        });
+      }
+    )
+    .catch(function(err) {
+      console.log('Fetch Error :', err);
+    });

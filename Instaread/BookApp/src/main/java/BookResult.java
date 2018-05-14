@@ -1,0 +1,50 @@
+// This class is used to represent an object that has all the necessary fields we need to display for book details
+public class BookResult {
+	private String artworkUrl60;
+	private String trackName;
+	private String trackViewUrl;
+	private String formattedPrice;
+	private String artistName;
+	private String[] genres;
+	private String description;
+	private String trackId;
+
+	public String getTrackId() {
+		return trackId;
+	}
+
+	public void setArtworkUrl60(String artworkUrl60) {
+		this.artworkUrl60 = artworkUrl60;
+	}
+
+	public void setTrackName(String trackName) {
+		this.trackName = trackName;
+	}
+
+	public void setTrackViewUrl(String trackViewUrl) {
+		this.trackViewUrl = trackViewUrl;
+	}
+
+	public void setFormattedPrice(String formattedPrice) {
+		this.formattedPrice = formattedPrice;
+	}
+
+
+	public void setArtistName(String artistName) {
+		this.artistName = artistName;
+	}
+
+	public void setGenres(String[] genres) {
+		this.genres = genres;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public void setTrackId(String trackId) {
+		this.trackId = trackId;
+	}
+	
+}
+

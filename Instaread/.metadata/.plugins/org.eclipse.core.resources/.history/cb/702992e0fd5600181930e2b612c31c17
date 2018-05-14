@@ -1,0 +1,34 @@
+
+public class BookResult {
+	private String artworkUrl60;
+	private String trackName;
+	private String trackViewUrl;
+	private String formattedPrice;
+	private String currency;
+	private String artistName;
+	private String[] genres;
+	private String description;
+	private String trackId;
+
+	public String getTrackId() {
+		return trackId;
+	}
+
+	public void setArtworkUrl60(String artworkUrl60) {
+		this.artworkUrl60 = artworkUrl60;
+	}
+
+	public void setTrackName(String trackName) {
+		this.trackName = trackName;
+	}
+
+	public void setTrackViewUrl(String trackViewUrl) {
+		this.trackViewUrl = trackViewUrl;
+	}
+
+	public void setFormattedPrice(String formattedPrice) {
+		this.formattedPrice = formattedPrice;
+	}
+	
+}
+

@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+.navbar {
+  border-bottom: #a2a2a2 3px solid;
+  opacity: 0.8; 
+}

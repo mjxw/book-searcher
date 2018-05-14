@@ -1,0 +1,75 @@
+var url = new URL('http://localhost:8080/BookApp/RetrieveDetailsServlet')
+var id = localStorage.getItem('id');
+
+var params = {id:id}; 
+url.search = new URLSearchParams(params);
+
+
+// Using Fetch API for AJAX requirement 
+fetch(url) 
+.then(
+  function(response) {
+    if (response.status !== 200) {
+      console.log('Looks like there was a problem. Status Code: ' +
+        response.status);
+      return;
+    }
+
+    // Examine the text in the response
+    response.text().then(function(data) {
+          console.log(data);
+          loadDetails(data);
+    });
+  }
+)
+.catch(function(err) {
+  console.log('Fetch Error :', err);
+});
+
+function loadDetails(data) {
+	var book = JSON.parse(data);
+	console.log(book.artworkUrl60);
+	
+	var details = document.getElementById("details");
+	
+	var card = document.createElement("div");
+	card.className = "card mb-3";
+	
+	// Book image section
+	var img = document.createElement("img");
+	img.className = "card-img-top";
+	img.src = book.artworkUrl60;
+	
+	var cardBody = document.createElement("div");
+	cardBody.className = "card-body";
+	
+	// Book title section
+	var cardTitle = document.createElement("div");
+	cardTitle.className = "card-title text-center";
+	var cardTitleText = document.createTextNode(book.trackName);
+	cardTitle.appendChild(cardTitleText);
+	
+	// Description section
+	var cardText1 = document.createElement("p");
+	cardText1.className = "card-text";
+	var text1 = document.createTextNode(book.description);
+	cardText1.appendChild(text1);
+	
+	// Author section
+	var cardText2 = document.createElement("p");
+	cardText2.className = "card-text text-center";
+	var small = document.createElement("small");
+	small.className = "text-muted";
+	var text2 = document.createTextNode("By " + book.artistName);
+	small.appendChild(text2);
+	cardText2.appendChild(small);
+	
+	
+	card.appendChild(img);
+	card.appendChild(cardBody);
+	card.appendChild(cardTitle);
+	card.appendChild(cardText1);
+	card.appendChild(cardText2);
+	
+	details.appendChild(card);
+}

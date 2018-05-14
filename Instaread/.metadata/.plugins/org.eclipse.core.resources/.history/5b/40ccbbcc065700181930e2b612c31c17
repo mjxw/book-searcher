@@ -1,0 +1,11 @@
+
+import java.util.List;
+
+public class SearchResponse {
+	private int resultCount;
+	private List<SearchResult> results;	
+	
+	public List<SearchResult> getResults() {
+		return results;
+	}
+}

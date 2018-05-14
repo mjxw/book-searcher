@@ -1,0 +1,12 @@
+
+import java.util.List;
+
+public class AppleResponse {
+	private int resultCount;
+	private List<Result> results;
+	
+	public List<Result> getResults() {
+		return results;
+	}
+	
+}

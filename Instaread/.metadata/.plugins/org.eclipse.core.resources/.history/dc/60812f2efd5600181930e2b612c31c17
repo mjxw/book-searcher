@@ -1,0 +1,11 @@
+import java.util.List;
+
+public class DetailsResponse {
+	private int resultCount;
+	private List<BookResults> results;
+	
+	public List<BookResults> getResults() {
+		return results;
+	}
+	
+}

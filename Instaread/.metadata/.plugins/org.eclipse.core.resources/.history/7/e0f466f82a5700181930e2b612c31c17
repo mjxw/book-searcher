@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+.navbar {
+  border-bottom: #a2a2a2 3px solid;
+  opacity: 0.8; 
+}
+
+#bookSection {
+	margin-top:100px;
+}
+
+#detailsSection {
+	margin-top:100px;
+}
+
+.card-title {
+	font-weight: bold;
+}
+
+.card-columns {
+	display: inline-block;
+}
+
+.card h-200{
+	border: 1px solid #ccc;
+	cursor: pointer;
+}
+
+
+/*Fade out the particular DIV when user hover on that DIV*/
+.card:hover{
+  border-color:#aec2d0;
+  background: #aec2d0;
+  color: #fff;
+  cursor: pointer;
+  
+  /*Opacity*/
+  zoom: 1;
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+
+@media (min-width: 576px) {
+    .card-columns {
+        column-count: 2;
+    }
+    
+    .card-img-top {
+	 width: 240.3px;
+	 height: 369.69px;
+	 padding: 10px;
+	}
+    
+	.card-columns .card {
+	 	width: 242px;
+	}
+}
+
+@media (min-width: 768px) {
+    .card-columns {
+        column-count: 3;
+    }
+    .card-img-top {
+	 width: 240.3px;
+	 height: 369.69px;
+	 padding: 10px;
+	}
+	    
+	.card-columns .card {
+	 	width: 242px;
+	}
+}
+
+@media (min-width: 992px) {
+    .card-columns {
+        column-count: 4;
+    }
+    
+    .card-img-top {
+	 width: 240.3px;
+	 height: 369.69px;
+	 padding: 10px;
+	}
+	    
+	.card-columns .card {
+	 	width: 242px;
+	}
+}
+
+@media (min-width: 1200px) {
+    .card-columns {
+        column-count: 5;
+    }
+    
+    .card-img-top {
+	 width: 240.3px;
+	 height: 369.69px;
+	 padding: 10px;
+	}
+	    
+	.card-columns .card {
+	 	width: 242px;
+	}
+}
+
+.short {
+  height: 4.5em;
+  display: block; /* Fallback for non-webkit */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-text:hover {
+	color: #fff;
+}

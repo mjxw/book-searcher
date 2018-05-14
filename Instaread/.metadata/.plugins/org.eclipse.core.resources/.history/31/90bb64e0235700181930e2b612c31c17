@@ -1,0 +1,60 @@
+
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+
+
+public class DetailServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    public DetailServlet() {
+        super();
+    }
+
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String id = request.getParameter("id");
+		System.out.println("here: " + id);
+		
+		
+        ArrayList<BookResult> details = new ArrayList<BookResult>();
+
+		ServletContext context = request.getSession().getServletContext();
+		details = (ArrayList<BookResult>) context.getAttribute("BookDetails");
+		
+		BookResult result = new BookResult();
+		for (int i = 0; i < details.size(); i++) {
+			if (id.equals(details.get(i).getTrackId())) {
+				result = details.get(i);
+				System.out.println("matched");
+			}
+		}
+		
+		String bookDetailsJson = new Gson().toJson(result);
+		
+		response.setContentType("application/json");
+		PrintWriter out = response.getWriter();						
+		out.append(bookDetailsJson);
+		
+		
+		RequestDispatcher rd = context.getRequestDispatcher("/details.jsp");
+		out.close();
+
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

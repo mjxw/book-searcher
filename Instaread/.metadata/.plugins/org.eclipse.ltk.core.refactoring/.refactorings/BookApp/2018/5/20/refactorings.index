@@ -1,0 +1,23 @@
+1526173329135	Move 'styles.css' to 'webapp'
+1526173642137	Delete element
+1526173665753	Delete element
+1526241580253	Delete element
+1526248352788	Rename type 'AppleResponse'
+1526248543567	Rename type 'Result'
+1526248633027	Rename type 'BookDetails'
+1526248968429	Delete element
+1526250603654	Rename type 'BookResults'
+1526250829204	Encapsulate field 'artworkUrl60'
+1526250854523	Encapsulate field 'trackName'
+1526250875723	Encapsulate field 'trackViewUrl'
+1526250888376	Encapsulate field 'formattedPrice'
+1526250902925	Encapsulate field 'currency'
+1526250914287	Encapsulate field 'artistName'
+1526250925793	Encapsulate field 'genres'
+1526250935778	Encapsulate field 'description'
+1526254201456	Delete element
+1526255999681	Rename resource 'scripts.js'
+1526257241846	Delete element
+1526258293847	Delete element
+1526268639165	Rename type 'DetailServlet'
+1526269279264	Delete element

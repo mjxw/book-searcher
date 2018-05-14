@@ -1,0 +1,11 @@
+
+public class BookDetails {
+	private String artworkUrl60;
+	private String trackName;
+	private String trackViewUrl;
+	private String formattedPrice;
+	private String currency;
+	private String artistName;
+	private String[] genres;
+	private String description;
+}

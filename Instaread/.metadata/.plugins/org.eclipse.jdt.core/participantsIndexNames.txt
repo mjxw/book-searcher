@@ -1,0 +1,3 @@
+INDEX VERSION 1.130
+/Users/matthewwu/Documents/EclipseWorkspace/Instaread/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3636782119.index
+/BookApp/src/main/resources

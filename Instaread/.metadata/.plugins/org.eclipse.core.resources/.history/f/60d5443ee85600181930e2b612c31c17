@@ -1,0 +1,8 @@
+
+
+public class Result {
+	private String artworkUrl60;
+	private String trackName;
+	private String artistName;
+	private String description;
+}

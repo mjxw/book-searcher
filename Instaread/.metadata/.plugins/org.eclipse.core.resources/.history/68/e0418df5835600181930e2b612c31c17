@@ -1,0 +1,89 @@
+document.getElementById("searchForm").addEventListener("submit", function(event){
+    event.preventDefault()
+    var book = document.getElementById("searchInput").value;
+    var url = new URL('http://localhost:8080/BookApp/BookServlet')
+
+    var params = {book:book} 
+    url.search = new URLSearchParams(params)
+    fetch(url) 
+    .then(
+      function(response) {
+        if (response.status !== 200) {
+          console.log('Looks like there was a problem. Status Code: ' +
+            response.status);
+          return;
+        }
+
+        // Examine the text in the response
+        response.text().then(function(data) {
+          loadBooks(data);
+        });
+      }
+    )
+    .catch(function(err) {
+      console.log('Fetch Error :', err);
+    });
+});
+
+function loadBooks(data) {
+	var columns = document.getElementById("columns");
+
+	if (columns.innerHTML) {
+		clear();
+	}
+	
+	var response = JSON.parse(data);
+	
+	// generating HTML elements to be injected into DOM
+	for (var i = 0; i < response.resultCount; i++) {
+		
+		var card = document.createElement("div");
+		card.className = "card h-200";
+		
+		// Book image section
+		var img = document.createElement("img");
+		img.className = "card-img-top";
+		img.src = response.results[i].artworkUrl60;
+		
+		var cardBody = document.createElement("div");
+		cardBody.className = "card-body";
+		
+		// Book title section
+		var cardTitle = document.createElement("div");
+		cardTitle.className = "card-title text-center";
+		var cardTitleText = document.createTextNode(response.results[i].trackName);
+		cardTitle.appendChild(cardTitleText);
+		
+		// Description section
+		var cardText1 = document.createElement("p");
+		cardText1.className = "card-text short text-center";
+		var text1 = document.createTextNode(response.results[i].description);
+		cardText1.appendChild(text1);
+		
+		// Author section
+		var cardText2 = document.createElement("p");
+		cardText2.className = "card-text text-center";
+		var small = document.createElement("small");
+		small.className = "text-muted";
+		var text2 = document.createTextNode("By " + response.results[i].artistName);
+		small.appendChild(text2);
+		cardText2.appendChild(small);
+		
+		card.appendChild(img);
+		card.appendChild(cardBody);
+		card.appendChild(cardTitle);
+		card.appendChild(cardText1);
+		card.appendChild(cardText2);
+		
+		columns.appendChild(card);
+		
+	}
+    console.log(response.results[0]);
+}
+
+function clear() {
+	var columns = document.getElementById("columns");
+	columns.innerHTML = "";
+	console.log("cleared");
+
+}

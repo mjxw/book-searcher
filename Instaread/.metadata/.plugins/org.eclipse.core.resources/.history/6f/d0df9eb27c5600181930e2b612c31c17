@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+.navbar {
+  border-bottom: #a2a2a2 3px solid;
+  opacity: 0.8; 
+}
+
+#bookSection {
+	margin-top:100px;
+}
+
+.card-title {
+	font-weight: bold;
+}
+
+.card-columns {
+	display: inline-block;
+}
+
+@media (min-width: 576px) {
+    .card-columns {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-columns {
+        column-count: 3;
+    }
+    
+}
+
+@media (min-width: 992px) {
+    .card-columns {
+        column-count: 4;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-columns {
+        column-count: 5;
+    }
+}

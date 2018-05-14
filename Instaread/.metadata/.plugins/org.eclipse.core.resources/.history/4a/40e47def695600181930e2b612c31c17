@@ -1,0 +1,38 @@
+document.getElementById("searchForm").addEventListener("submit", function(event){
+    event.preventDefault()
+    var book = document.getElementById("searchInput").value;
+    var url = new URL('http://localhost:8080/BookApp/BookServlet')
+
+    var params = {book:book} 
+    url.search = new URLSearchParams(params)
+    fetch(url) 
+    .then(
+      function(response) {
+        if (response.status !== 200) {
+          console.log('Looks like there was a problem. Status Code: ' +
+            response.status);
+          return;
+        }
+
+        // Examine the text in the response
+        response.text().then(function(data) {
+          loadBooks(data);
+        });
+      }
+    )
+    .catch(function(err) {
+      console.log('Fetch Error :', err);
+    });
+});
+
+function loadBooks(data) {
+	var response = JSON.parse(data);
+	for (var i = 0; i < response.resultCount; i++) {
+		var card = document.createElement("div");
+		card.className = "card";
+		var img = document.createElement("img");
+		img.className = "card-img-top";
+		img.src = response.results[i].artworkUrl60;
+	}
+    console.log(response.results[0]);
+}
